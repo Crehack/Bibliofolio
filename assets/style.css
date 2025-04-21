@@ -1,0 +1,424 @@
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1E1E1E;
+    color: #E1E1E1;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #4CAF50;
+    padding: 20px 0;
+    border-bottom: 2px solid #4CAF50;
+    text-align: center;
+    width: 100%;
+}
+
+header .title-link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header .title-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #4CAF50;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #4CAF50;
+}
+
+/* Contenu principal */
+main {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    flex-grow: 1;
+}
+
+body.index-page main {
+    margin-left: 0;
+}
+
+main.expanded {
+    margin-left: 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+.telecharger {
+    display: inline-flex; /* Alignement plus flexible */
+    align-items: center;
+    justify-content: center;
+    background-color: #4CAF50;
+    color: #1E1E1E;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.telecharger:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+    border-color: #ffffff;
+}
+
+.telecharger:active {
+    transform: scale(0.95);
+}
+
+.intro {
+    margin-bottom: 40px;
+}
+
+.portfolio-list {
+    margin-top: 20px;
+}
+
+/* Grille de portfolios */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.portfolio-btn {
+    background-color: #4CAF50;
+    color: #1E1E1E;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.portfolio-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #4CAF50;
+}
+
+/* Style des portfolios */
+.main-container {
+    display: flex;
+    padding-top: 20px;
+}
+
+.side-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: #1a1a1a;
+    padding: 25px 15px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.side-navbar.collapsed {
+    transform: translateX(-100%);
+}
+
+.side-navbar ul {
+    list-style: none;
+    position: relative;
+}
+
+.side-navbar > ul > li {
+    position: relative;
+    padding-left: 20px;
+    margin: 25px 0;
+}
+
+.side-navbar > ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 10px;
+    height: 1px;
+    background: #4CAF50;
+}
+
+.side-navbar ul ul {
+    margin-left: 25px;
+    padding-left: 15px;
+    border-left: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.side-navbar ul ul li {
+    position: relative;
+    margin: 15px 0;
+}
+
+.side-navbar ul ul li::before {
+    content: "▹";
+    position: absolute;
+    left: -18px;
+    color: #4CAF50;
+    font-size: 0.9em;
+}
+
+.side-navbar a {
+    color: #8f8f8f;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+}
+
+.side-navbar a:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    transform: translateX(10px);
+}
+
+.side-navbar > ul > li > a {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.side-navbar a[aria-current="page"] {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4CAF50;
+}
+
+/* Style des liens dans les projets */
+.projects a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.projects a:hover {
+    color: #E1E1E1;
+}
+
+.projects a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.projects a:hover:after {
+    width: 100%;
+}
+
+/* Bouton unique */
+.sidebar-toggle {
+    position: fixed;
+    left: 260px;
+    top: 20px;
+    background: #4CAF50;
+    border: none;
+    color: #1E1E1E;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 3px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.sidebar-toggle:hover {
+    background: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.side-navbar.collapsed + main .sidebar-toggle {
+    left: 20px;
+}
+
+/* Masquer le bouton sur la page d'accueil */
+body.index-page .sidebar-toggle {
+    display: none;
+}
+
+/* Style pour les éléments non sélectionnables */
+.side-navbar > ul > li > span {
+    color: #666;
+    cursor: default;
+    padding: 8px 12px;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #4CAF50;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.cv-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Cadre photo */
+.photo-frame {
+    width: 200px;
+    height: 250px;
+    border: 3px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4CAF50;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* Empêche le cadre de rétrécir */
+}
+
+.photo-frame::before {
+    content: "PHOTO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Détails CV */
+.cv-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Responsivité */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-toggle {
+        left: 20px;
+    }
+
+    .side-navbar {
+        width: 280px;
+    }
+
+    main.expanded {
+        margin-left: 280px;
+    }
+    .photo-frame {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-toggle {
+        left: 10px;
+        top: 10px;
+        padding: 5px 8px;
+        font-size: 1.2em;
+    }
+
+    .side-navbar {
+        width: 100%;
+    }
+
+    main.expanded {
+        margin-left: 0;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+    .cv-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-frame {
+        margin-bottom: 20px;
+    }
+    .cv-details {
+        text-align: center;
+    }
+}
